@@ -24,6 +24,6 @@ public class PantallaResultats : MonoBehaviour
         ValorsGlobals.puntsAconseguits = "Punts: 0";
 
         // Cargar la escena de inicio (asegúrate del nombre exacto)
-        UnityEngine.SceneManagement.SceneManager.LoadScene("EscenaInici");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("MenuInici");
     }
 }
