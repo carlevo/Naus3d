@@ -45,13 +45,14 @@ public class GeneradorEnemics : MonoBehaviour
         GameObject nauEnemic = Instantiate(_NauEnemicPrefab);
 
         // Obtenemos los límites de la pantalla en coordenadas del mundo.
-        Vector2 minPantalla = Camera.main.ViewportToWorldPoint(new Vector2(0f, 0f));
-        Vector2 maxPantalla = Camera.main.ViewportToWorldPoint(new Vector2(1f, 1f));
+        float profunditatCamera = Mathf.Abs(Camera.main.transform.position.z - transform.position.z);
+        Vector3 minPantalla = Camera.main.ViewportToWorldPoint(new Vector3(0f, 0f, profunditatCamera));
+        Vector3 maxPantalla = Camera.main.ViewportToWorldPoint(new Vector3(1f, 1f, profunditatCamera));
 
         // Posición X aleatoria entre el margen izquierdo y derecho de la pantalla.
         float posicioHoritzontalComponentX = Random.Range(minPantalla.x, maxPantalla.x);
 
         // Colocamos el enemigo en la parte superior de la pantalla.
-        nauEnemic.transform.position = new Vector2(posicioHoritzontalComponentX, maxPantalla.y);
+        nauEnemic.transform.position = new Vector3(posicioHoritzontalComponentX, maxPantalla.y, transform.position.z);
     }
 }

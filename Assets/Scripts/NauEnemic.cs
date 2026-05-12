@@ -17,26 +17,27 @@ public class NauEnemic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 novaPos = transform.position;
+        Vector3 novaPos = transform.position;
 
-        Vector2 direccio = new Vector2(0f, -1f);
+        Vector3 direccio = Vector3.down;
 
         novaPos = novaPos + direccio * _vel * Time.deltaTime;
 
         transform.position = novaPos;
 
-        Vector2 minPantalla = Camera.main.ViewportToWorldPoint(new Vector2(0, 0));
+        float profunditatCamera = Mathf.Abs(Camera.main.transform.position.z - transform.position.z);
+        Vector3 minPantalla = Camera.main.ViewportToWorldPoint(new Vector3(0f, 0f, profunditatCamera));
         if (transform.position.y < minPantalla.y)
         {
             //Debug.Log("Ha sortit fora.");
-            // GameObject és l'objecte actual que té aquest script (com si fos un "this").
+            // GameObject ï¿½s l'objecte actual que tï¿½ aquest script (com si fos un "this").
             Destroy(gameObject);
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D objecteTocat)
+    private void OnTriggerEnter(Collider objecteTocat)
     {
-        if (objecteTocat.tag == "ProjectilJugador" || objecteTocat.tag == "NauJugador")
+        if (objecteTocat.CompareTag("ProjectilJugador") || objecteTocat.CompareTag("NauJugador"))
         {
 
             GameObject explosio = Instantiate(_ExplosioPrefab);

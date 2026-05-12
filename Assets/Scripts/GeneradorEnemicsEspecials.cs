@@ -27,12 +27,13 @@ public class GeneradorEnemicsEspecials : MonoBehaviour
     {
         if (_NauEnemicEspecialPrefab == null) return;
 
-        Vector2 minPantalla = Camera.main.ViewportToWorldPoint(new Vector2(0f, 0f));
-        Vector2 maxPantalla = Camera.main.ViewportToWorldPoint(new Vector2(1f, 1f));
+        float profunditatCamera = Mathf.Abs(Camera.main.transform.position.z - transform.position.z);
+        Vector3 minPantalla = Camera.main.ViewportToWorldPoint(new Vector3(0f, 0f, profunditatCamera));
+        Vector3 maxPantalla = Camera.main.ViewportToWorldPoint(new Vector3(1f, 1f, profunditatCamera));
 
         float posicioHoritzontalComponentX = Random.Range(minPantalla.x, maxPantalla.x);
 
         GameObject nauEnemicEspecial = Instantiate(_NauEnemicEspecialPrefab);
-        nauEnemicEspecial.transform.position = new Vector2(posicioHoritzontalComponentX, maxPantalla.y);
+        nauEnemicEspecial.transform.position = new Vector3(posicioHoritzontalComponentX, maxPantalla.y, transform.position.z);
     }
 }

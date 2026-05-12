@@ -5,24 +5,25 @@ using UnityEngine;
 public class ProjectilEnemicEspecial : MonoBehaviour
 {
     private float _vel = 5f;
-    private Vector2 _direccio = new Vector2(0f, -1f);
+    private Vector3 _direccio = Vector3.down;
 
     void Update()
     {
-        Vector2 novaPos = transform.position;
+        Vector3 novaPos = transform.position;
         novaPos += _direccio * _vel * Time.deltaTime;
         transform.position = novaPos;
 
-        Vector2 minPantalla = Camera.main.ViewportToWorldPoint(new Vector2(0, 0));
+        float profunditatCamera = Mathf.Abs(Camera.main.transform.position.z - transform.position.z);
+        Vector3 minPantalla = Camera.main.ViewportToWorldPoint(new Vector3(0f, 0f, profunditatCamera));
         if (transform.position.y < minPantalla.y)
         {
             Destroy(gameObject);
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D objecteTocat)
+    private void OnTriggerEnter(Collider objecteTocat)
     {
-        if (objecteTocat.tag == "NauJugador")
+        if (objecteTocat.CompareTag("NauJugador"))
         {
             Destroy(gameObject);
         }

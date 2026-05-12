@@ -25,7 +25,8 @@ public class NauEnemicEspecial : MonoBehaviour
     {
         // Determina la dirección horizontal según la mitad de pantalla donde aparece.
         // Si aparece a la derecha del centro, se mueve hacia la derecha (+1); si no, hacia la izquierda (-1).
-        Vector2 centrePantalla = Camera.main.ViewportToWorldPoint(new Vector2(0.5f, 0.5f));
+        float profunditatCamera = Mathf.Abs(Camera.main.transform.position.z - transform.position.z);
+        Vector3 centrePantalla = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, profunditatCamera));
         _direccioHoritzontal = transform.position.x >= centrePantalla.x ? 1f : -1f;
 
         // Empieza a disparar proyectiles cada 0,5 segundos (primera vez a los 0,5 s).
@@ -34,7 +35,7 @@ public class NauEnemicEspecial : MonoBehaviour
 
     void Update()
     {
-        Vector2 novaPos = transform.position;
+        Vector3 novaPos = transform.position;
 
         if (_movimentHoritzontal)
         {
@@ -43,8 +44,9 @@ public class NauEnemicEspecial : MonoBehaviour
             transform.position = novaPos;
 
             // Comprueba si ha llegado al borde izquierdo o derecho de la pantalla.
-            Vector2 minPantalla = Camera.main.ViewportToWorldPoint(new Vector2(0f, 0f));
-            Vector2 maxPantalla = Camera.main.ViewportToWorldPoint(new Vector2(1f, 1f));
+            float profunditatCamera = Mathf.Abs(Camera.main.transform.position.z - transform.position.z);
+            Vector3 minPantalla = Camera.main.ViewportToWorldPoint(new Vector3(0f, 0f, profunditatCamera));
+            Vector3 maxPantalla = Camera.main.ViewportToWorldPoint(new Vector3(1f, 1f, profunditatCamera));
 
             if (transform.position.x <= minPantalla.x || transform.position.x >= maxPantalla.x)
             {
@@ -60,7 +62,8 @@ public class NauEnemicEspecial : MonoBehaviour
             transform.position = novaPos;
 
             // Si sale por debajo de la pantalla, se destruye.
-            Vector2 minPantalla = Camera.main.ViewportToWorldPoint(new Vector2(0f, 0f));
+            float profunditatCamera = Mathf.Abs(Camera.main.transform.position.z - transform.position.z);
+            Vector3 minPantalla = Camera.main.ViewportToWorldPoint(new Vector3(0f, 0f, profunditatCamera));
             if (transform.position.y < minPantalla.y)
             {
                 Destroy(gameObject);
@@ -78,9 +81,9 @@ public class NauEnemicEspecial : MonoBehaviour
     }
 
     // Detecta colisión con un proyectil del jugador o con la nave del jugador.
-    private void OnTriggerEnter2D(Collider2D objecteTocat)
+    private void OnTriggerEnter(Collider objecteTocat)
     {
-        if (objecteTocat.tag == "ProjectilJugador" || objecteTocat.tag == "NauJugador")
+        if (objecteTocat.CompareTag("ProjectilJugador") || objecteTocat.CompareTag("NauJugador"))
         {
             // Instancia la explosión en la posición del enemigo.
             GameObject explosio = Instantiate(_ExplosioPrefab);
