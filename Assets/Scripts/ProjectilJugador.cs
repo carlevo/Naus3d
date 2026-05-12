@@ -1,38 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ProjectilJugador : MonoBehaviour
 {
     float _vel = 10f;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        Vector2 novaPos = transform.position;
-
-        novaPos = novaPos + new Vector2(0f, 1f) * _vel * Time.deltaTime;
-
-        transform.position = novaPos;
-
-        Vector2 maxPantalla = Camera.main.ViewportToWorldPoint(new Vector2(0f, 1f));
-        if (transform.position.y > maxPantalla.y)
-        {
-            Destroy(gameObject);
-        }
+        transform.Translate(Vector3.up * _vel * Time.deltaTime);
+        Vector3 max = Camera.main.ViewportToWorldPoint(new Vector3(0, 1, 0));
+        if (transform.position.y > max.y) Destroy(gameObject);
     }
-
-    private void OnTriggerEnter2D(Collider2D objecteTocat)
+    private void OnTriggerEnter(Collider other)
     {
-        if (objecteTocat.tag == "Enemic")
-        {
-            Destroy(gameObject);
-        }
+        if (other.CompareTag("Enemic")) Destroy(gameObject);
     }
 }

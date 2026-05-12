@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -12,11 +10,8 @@ public class NauJugador : MonoBehaviour
 
     [SerializeField] private int _videsInicials = 3;
 
-    public GameObject _ExplosioPrefab;
+    public GameObject _ExplosioPrefab;  // L'explosió també ha de ser 3D
 
-
-
-    // Start is called before the first frame update
     void Start()
     {
         _vel = 8f;
@@ -25,49 +20,32 @@ public class NauJugador : MonoBehaviour
         _totalVidesRecollides = 0;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        float direccioInputX = Input.GetAxisRaw("Horizontal");
-        float direccioInputY = Input.GetAxisRaw("Vertical");
-        //Debug.Log(direccioInputX + " - " + direccioInputY);
-
-        Vector2 direccioIndicada = new Vector2(direccioInputX, direccioInputY).normalized;
-        //Debug.Log(direccioIndicada + " magnitud=" + direccioIndicada.magnitude);
-
-        MoureNau(direccioIndicada);
-
+        float hor = Input.GetAxisRaw("Horizontal");
+        float ver = Input.GetAxisRaw("Vertical");
+        Vector3 direccio = new Vector3(hor, ver, 0).normalized;
+        MoureNau(direccio);
     }
 
-    void MoureNau(Vector2 direccioIndicada)
+    void MoureNau(Vector3 direccio)
     {
-        // Anem a moure la nau:
-        // 1) Agafem la posici� actual (x, y) de la nau:
-        //      transform.position ens retorna la posici� actual de la nau.
-        Vector2 posNau = transform.position;
+        Vector3 pos = transform.position;
+        pos += direccio * _vel * Time.deltaTime;
 
-        // 2) Trobem la nova posici� de la nau:
-        posNau = posNau + direccioIndicada * _vel * Time.deltaTime;
-        //Debug.Log("Time.deltaTime=" + Time.deltaTime);
-
-        Vector2 minPantalla = Camera.main.ViewportToWorldPoint(new Vector2(0, 0));
-        Vector2 maxPantalla = Camera.main.ViewportToWorldPoint(new Vector2(1, 1));
-
-        maxPantalla.x = maxPantalla.x - 0.6f;
-        minPantalla.x = minPantalla.x + 0.6f;
-        maxPantalla.y = maxPantalla.y - 0.8f;
-        minPantalla.y = minPantalla.y + 0.8f;
-
-        posNau.x = Mathf.Clamp(posNau.x, minPantalla.x, maxPantalla.x);
-        posNau.y = Mathf.Clamp(posNau.y, minPantalla.y, maxPantalla.y);
-
-        // 3) Assignem la nova posici� (movem l'objecte):
-        transform.position = posNau;
+        // Límits de pantalla en coordenades del món (càmera en perspectiva)
+        Vector3 min = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, 0));
+        Vector3 max = Camera.main.ViewportToWorldPoint(new Vector3(1, 1, 0));
+        pos.x = Mathf.Clamp(pos.x, min.x + 0.6f, max.x - 0.6f);
+        pos.y = Mathf.Clamp(pos.y, min.y + 0.6f, max.y - 0.6f);
+        // Z es manté constant (per exemple, 0)
+        pos.z = 0;
+        transform.position = pos;
     }
 
-    private void OnTriggerEnter2D(Collider2D objecteTocat)
+    private void OnTriggerEnter(Collider other)
     {
-        if (objecteTocat.tag == "Enemic" || objecteTocat.tag == "ProjectilEnemic")
+        if (other.CompareTag("Enemic") || other.CompareTag("ProjectilEnemic"))
         {
             RebreImpacte();
         }
@@ -75,54 +53,24 @@ public class NauJugador : MonoBehaviour
 
     private void RebreImpacte()
     {
-        if (_estaMort)
-        {
-            return;
-        }
-
+        if (_estaMort) return;
         _vides--;
 
         if (_ExplosioPrefab != null)
         {
-            GameObject explosio = Instantiate(_ExplosioPrefab);
-            explosio.transform.position = transform.position;
+            Instantiate(_ExplosioPrefab, transform.position, Quaternion.identity);
         }
 
-        if (_vides > 0)
-        {
-            return;
-        }
+        if (_vides > 0) return;
 
         _estaMort = true;
-
-        // Gesti� de vides jugador i canvi d'escena.
-
-        // No cal destruir la nau del jugador si es canvia l'escena.
-        //Destroy(gameObject);
-
+        // Guardar punts i vides recollides
         TextPuntsJugador textPunts = GetComponent<TextPuntsJugador>();
-        if (textPunts != null)
-        {
-            ValorsGlobals.puntsTotals = textPunts.getPuntsJugador();
-        }
+        if (textPunts != null) ValorsGlobals.puntsTotals = textPunts.getPuntsJugador();
         ValorsGlobals.totalVidesRecollides = _totalVidesRecollides;
-
         SceneManager.LoadScene("EscenaResultats");
     }
 
-    public int getVidesJugador()
-    {
-        return _vides;
-    }
-
-    public void AfegirVida(int videsAfegides)
-    {
-        if (_estaMort)
-        {
-            return;
-        }
-
-        _vides += videsAfegides;
-        _totalVidesRecollides += videsAfegides;
-    }
+    public int getVidesJugador() => _vides;
+    public void AfegirVida(int q) { if (!_estaMort) { _vides += q; _totalVidesRecollides += q; } }
 }
