@@ -7,17 +7,17 @@ public class ProjectilEnemic : MonoBehaviour
 {
     private float _vel;
     private bool _continuaUltimaDireccio;
-    private Vector2 _direccioJugador;
+    private Vector3 _direccioJugador;
 
     // Start is called before the first frame update
     void Start()
     {
         _vel = 5f;
         _continuaUltimaDireccio = false;
-        _direccioJugador = Vector2.down;
+        _direccioJugador = Vector3.down;
         Invoke("ContinuaUltimaDireccio", 1.5f);
         // Al cap de 1,5 segons, crida ContinuaUltimaDireccio.
-        //  Això fa que _continuaUltimaDireccio es posi a true i
+        //  Aixï¿½ fa que _continuaUltimaDireccio es posi a true i
         //  el projectil deixi de seguir al jugador.
     }
 
@@ -33,7 +33,7 @@ public class ProjectilEnemic : MonoBehaviour
                 _direccioJugador = (nauJugador.transform.position - transform.position).normalized;
             }
 
-            Vector2 novaPos = transform.position;
+            Vector3 novaPos = transform.position;
             novaPos = novaPos + _direccioJugador * _vel * Time.deltaTime;
             transform.position = novaPos;
 
@@ -47,8 +47,9 @@ public class ProjectilEnemic : MonoBehaviour
 
     private void ComprovarDinsPantalla()
     {
-        Vector2 minPantalla = Camera.main.ViewportToWorldPoint(new Vector2(0, 0));
-        Vector2 maxPantalla = Camera.main.ViewportToWorldPoint(new Vector2(1, 1));
+        float profunditatCamera = Mathf.Abs(Camera.main.transform.position.z - transform.position.z);
+        Vector3 minPantalla = Camera.main.ViewportToWorldPoint(new Vector3(0f, 0f, profunditatCamera));
+        Vector3 maxPantalla = Camera.main.ViewportToWorldPoint(new Vector3(1f, 1f, profunditatCamera));
         if ((transform.position.y < minPantalla.y) || (transform.position.x < minPantalla.x) ||
             (transform.position.y > maxPantalla.y) || (transform.position.x > maxPantalla.x))
         {
@@ -61,19 +62,19 @@ public class ProjectilEnemic : MonoBehaviour
         _continuaUltimaDireccio = true;
     }
 
-    // Per si es volgués que el projectil només vagi en vertical avall.
+    // Per si es volguï¿½s que el projectil nomï¿½s vagi en vertical avall.
     private void MovimentVertical()
     {
-        Vector2 novaPos = transform.position;
+        Vector3 novaPos = transform.position;
 
-        novaPos = novaPos + Vector2.down * _vel * Time.deltaTime;
+        novaPos = novaPos + Vector3.down * _vel * Time.deltaTime;
 
         transform.position = novaPos;
     }
 
-    private void OnTriggerEnter2D(Collider2D objecteTocat)
+    private void OnTriggerEnter(Collider objecteTocat)
     {
-        if (objecteTocat.tag == "NauJugador")
+        if (objecteTocat.CompareTag("NauJugador"))
         {
             Destroy(gameObject);
         }
