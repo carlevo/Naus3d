@@ -36,7 +36,11 @@ public class NauEnemic : MonoBehaviour
 
     private void OnTriggerEnter(Collider objecteTocat)
     {
-        if (objecteTocat.CompareTag("ProjectilJugador") || objecteTocat.CompareTag("NauJugador"))
+        bool impacteProjectilJugador =
+            objecteTocat.GetComponent<ProjectilJugador>() != null ||
+            objecteTocat.GetComponentInParent<ProjectilJugador>() != null;
+
+        if (impacteProjectilJugador || objecteTocat.CompareTag("NauJugador"))
         {
 
             int puntsEnemic = 200;

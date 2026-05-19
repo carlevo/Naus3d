@@ -81,7 +81,11 @@ public class NauEnemicEspecial : MonoBehaviour
     // Detecta colisión con un proyectil del jugador o con la nave del jugador.
     private void OnTriggerEnter(Collider objecteTocat)
     {
-        if (objecteTocat.CompareTag("ProjectilJugador") || objecteTocat.CompareTag("NauJugador"))
+        bool impacteProjectilJugador =
+            objecteTocat.GetComponent<ProjectilJugador>() != null ||
+            objecteTocat.GetComponentInParent<ProjectilJugador>() != null;
+
+        if (impacteProjectilJugador || objecteTocat.CompareTag("NauJugador"))
         {
             // Suma 500 puntos al marcador del jugador (más que el enemigo normal).
             int puntsEnemic = 500;

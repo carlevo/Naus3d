@@ -32,22 +32,47 @@ public class NauJugador : MonoBehaviour
     void MoureNau(Vector3 direccio)
     {
         Vector3 pos = transform.position;
-        Debug.Log($"Input direccio: {direccio}");
         pos += direccio * _vel * Time.deltaTime;
 
-        // Límits de pantalla en coordenades del món (càmera en perspectiva)
-        Vector3 min = Camera.main.ViewportToWorldPoint(new Vector2(0, 0));
-        Vector3 max = Camera.main.ViewportToWorldPoint(new Vector2(1, 1));
-        pos.x = Mathf.Clamp(pos.x, min.x, max.x);
-        pos.y = Mathf.Clamp(pos.y, min.y, max.y);
-        // Z es manté constant (per exemple, 0)
-        pos.z = 0;
+        Camera cam = Camera.main;
+        if (cam != null)
+        {
+            float zJugador = transform.position.z;
+            float profunditat = Mathf.Abs(zJugador - cam.transform.position.z);
+            if (profunditat < 0.01f) profunditat = cam.nearClipPlane + 0.01f;
+
+            // Con perspectiva, ViewportToWorldPoint necesita la profundidad respecto a la cámara.
+            Vector3 min = cam.ViewportToWorldPoint(new Vector3(0f, 0f, profunditat));
+            Vector3 max = cam.ViewportToWorldPoint(new Vector3(1f, 1f, profunditat));
+
+            float margeX = 0f;
+            float margeY = 0f;
+            Collider col = GetComponent<Collider>();
+            if (col != null)
+            {
+                margeX = col.bounds.extents.x;
+                margeY = col.bounds.extents.y;
+            }
+
+            pos.x = Mathf.Clamp(pos.x, min.x + margeX, max.x - margeX);
+            pos.y = Mathf.Clamp(pos.y, min.y + margeY, max.y - margeY);
+        }
+
+        // Manté la nau al mateix pla Z.
+        pos.z = transform.position.z;
         transform.position = pos;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Enemic") || other.CompareTag("ProjectilEnemic"))
+        bool esEnemic = other.CompareTag("Enemic");
+        bool esProjectilEnemic =
+            other.GetComponent<ProjectilEnemic>() != null ||
+            other.GetComponent<ProjectilEnemicEspecial>() != null ||
+            other.GetComponentInParent<ProjectilEnemic>() != null ||
+            other.GetComponentInParent<ProjectilEnemicEspecial>() != null;
+
+        if (esEnemic || esProjectilEnemic)
         {
             RebreImpacte();
         }
