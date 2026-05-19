@@ -9,7 +9,7 @@ public class GeneradorProjectilEnemic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Invoke("CreaProjectil", 0.75f);
+        InvokeRepeating("CreaProjectil", 0.75f, 1.2f);
     }
 
     // Update is called once per frame

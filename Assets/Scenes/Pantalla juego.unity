@@ -255,6 +255,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _VidaExtraPrefab: {fileID: 3780761800454946078, guid: 0d2c66d910bbadf4498e7c18b061cf10, type: 3}
+  _intervalSpawn: 3
+  _margeLateral: 0.6
+  _offsetSpawnSuperior: 1
 --- !u!4 &117790287
 Transform:
   m_ObjectHideFlags: 0
@@ -299,7 +302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2720f214a8c91f743a4e5b539878360d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _NauEnemicEspecialPrefab: {fileID: 0}
+  _NauEnemicEspecialPrefab: {fileID: 1388856590934513730, guid: 6338295d289f7b446a4dcc4638ac35ae, type: 3}
 --- !u!4 &421230252
 Transform:
   m_ObjectHideFlags: 0
@@ -713,7 +716,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 4c739c0ab05c2cf48ae74f218c6a9839, type: 3}
-  m_Color: {r: 0.5021805, g: 0.5174135, b: 0.5754717, a: 1}
+  m_Color: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
