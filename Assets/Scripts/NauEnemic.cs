@@ -44,7 +44,11 @@ public class NauEnemic : MonoBehaviour
         {
 
             int puntsEnemic = 100;
-            GameObject.Find("TextPunts").GetComponent<TextPuntsJugador>().setPuntsJugador(puntsEnemic);
+            TextPuntsJugador textPunts = FindObjectOfType<TextPuntsJugador>();
+            if (textPunts != null)
+            {
+                textPunts.setPuntsJugador(puntsEnemic);
+            }
 
             Destroy(gameObject);
         }

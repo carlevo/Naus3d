@@ -2,27 +2,51 @@ using UnityEngine;
 
 public class VidaExtra : MonoBehaviour
 {
-    public float velocidadCaida = 0.5f;  // Muy lento
-    public Vector3 escala = new Vector3(0.5f, 0.5f, 0.5f);  // Tamaño visible
+    public float velocidadCaida = 0.5f;
+    public Vector3 escala = new Vector3(0.5f, 0.5f, 0.5f);
+
+    private Camera _cam;
+    private float _margeInferior;
 
     private void Start()
     {
         transform.localScale = escala;
-        Debug.Log("Corazón iniciado en posición: " + transform.position);
+
+        _cam = Camera.main;
+
+        // Forzamos render por delante para evitar que quede oculto por sprites/fondos.
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+        if (sr != null) sr.sortingOrder = 20;
+
+        Rigidbody rb = GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            rb.useGravity = false;
+            rb.isKinematic = true;
+        }
+
+        Collider col = GetComponent<Collider>();
+        _margeInferior = col != null ? col.bounds.extents.y : 0.2f;
     }
 
     private void Update()
     {
         // Movimiento hacia abajo
-        transform.Translate(Vector3.down * velocidadCaida * Time.deltaTime);
+        transform.position += Vector3.down * velocidadCaida * Time.deltaTime;
+
+        if (_cam == null)
+        {
+            _cam = Camera.main;
+            if (_cam == null) return;
+        }
 
         // Obtener la profundidad correcta para calcular los límites
-        Camera cam = Camera.main;
-        float profunditat = Mathf.Abs(cam.transform.position.z);
-        Vector3 minPantalla = cam.ViewportToWorldPoint(new Vector3(0, 0, profunditat));
+        float profunditat = Mathf.Abs(transform.position.z - _cam.transform.position.z);
+        if (profunditat < 0.01f) profunditat = _cam.nearClipPlane + 0.01f;
+        Vector3 minPantalla = _cam.ViewportToWorldPoint(new Vector3(0, 0, profunditat));
         
         // Destruir solo si sale por abajo de la pantalla
-        if (transform.position.y < minPantalla.y)
+        if (transform.position.y < minPantalla.y - _margeInferior)
         {
             Destroy(gameObject);
         }

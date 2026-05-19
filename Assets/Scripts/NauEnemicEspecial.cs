@@ -89,7 +89,11 @@ public class NauEnemicEspecial : MonoBehaviour
         {
             // Suma 500 puntos al marcador del jugador (más que el enemigo normal).
             int puntsEnemic = 500;
-            GameObject.Find("TextPunts").GetComponent<TextPuntsJugador>().setPuntsJugador(puntsEnemic);
+            TextPuntsJugador textPunts = FindObjectOfType<TextPuntsJugador>();
+            if (textPunts != null)
+            {
+                textPunts.setPuntsJugador(puntsEnemic);
+            }
 
             Destroy(gameObject);
         }

@@ -12,6 +12,11 @@ public class TextPuntsJugador : MonoBehaviour
     {
         _puntsJugadorText = GetComponent<TMPro.TextMeshProUGUI>();
         _puntsJugadorInt = 0;
+
+        if (_puntsJugadorText != null)
+        {
+            _puntsJugadorText.text = "Puntos: 0";
+        }
     }
 
     // Update is called once per frame
@@ -22,8 +27,14 @@ public class TextPuntsJugador : MonoBehaviour
 
     public void setPuntsJugador(int nousPunts)
     {
+        if (_puntsJugadorText == null)
+        {
+            _puntsJugadorText = GetComponent<TMPro.TextMeshProUGUI>();
+            if (_puntsJugadorText == null) return;
+        }
+
         _puntsJugadorInt += nousPunts;
-        _puntsJugadorText.text = "Punts: " + _puntsJugadorInt;
+        _puntsJugadorText.text = "Puntos: " + _puntsJugadorInt;
         ValorsGlobals.puntsAconseguits = _puntsJugadorText.text;
         ValorsGlobals.puntsTotals = _puntsJugadorInt;
     }
@@ -35,7 +46,13 @@ public class TextPuntsJugador : MonoBehaviour
 
     public void InicialitzarPunts()
     {
+        if (_puntsJugadorText == null)
+        {
+            _puntsJugadorText = GetComponent<TMPro.TextMeshProUGUI>();
+            if (_puntsJugadorText == null) return;
+        }
+
         _puntsJugadorInt = 0;
-        _puntsJugadorText.text = "Punts: 0";
+        _puntsJugadorText.text = "Puntos: 0";
     }
 }
