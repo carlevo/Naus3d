@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Pantalla juego.unity
     guid: 4236c7ebc512e624fabed1f06c5eb779
+  - enabled: 1
+    path: Assets/Scenes/PruebaTransferirDatos.unity
+    guid: 4f9baf8b42b24114e96e7a366b810203
   m_configObjects: {}
