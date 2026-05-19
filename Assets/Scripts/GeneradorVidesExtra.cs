@@ -17,10 +17,16 @@ public class GeneradorVidesExtra : MonoBehaviour
             return;
         }
 
-        Vector3 min = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, 0));
-        Vector3 max = Camera.main.ViewportToWorldPoint(new Vector3(1, 1, 0));
+        // Obtener los límites de la pantalla
+        Camera cam = Camera.main;
+        float profunditat = Mathf.Abs(cam.transform.position.z);
+        
+        Vector3 min = cam.ViewportToWorldPoint(new Vector3(0, 0, profunditat));
+        Vector3 max = cam.ViewportToWorldPoint(new Vector3(1, 1, profunditat));
+        
+        // Posición aleatoria en X, arriba de la pantalla
         float x = Random.Range(min.x, max.x);
-        Vector3 pos = new Vector3(x, max.y, 0);
+        Vector3 pos = new Vector3(x, max.y + 5f, 0);  // Generamos arriba del todo
 
         Instantiate(_VidaExtraPrefab, pos, Quaternion.identity);
         Debug.Log("Corazón generado en posición: " + pos);

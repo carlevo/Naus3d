@@ -43,7 +43,7 @@ public class NauEnemic : MonoBehaviour
         if (impacteProjectilJugador || objecteTocat.CompareTag("NauJugador"))
         {
 
-            int puntsEnemic = 200;
+            int puntsEnemic = 100;
             GameObject.Find("TextPunts").GetComponent<TextPuntsJugador>().setPuntsJugador(puntsEnemic);
 
             Destroy(gameObject);

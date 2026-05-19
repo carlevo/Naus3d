@@ -22,6 +22,19 @@ public class ProjectilJugador : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Enemic")) Destroy(gameObject);
+        // Verificar si es un enemigo por tag o por componente
+        bool esEnemic = other.CompareTag("Enemic") || 
+                        other.GetComponent<NauEnemic>() != null || 
+                        other.GetComponentInParent<NauEnemic>() != null;
+        
+        if (esEnemic)
+        {
+            // Destruir el enemigo si existe el componente
+            NauEnemic enemic = other.GetComponent<NauEnemic>() ?? other.GetComponentInParent<NauEnemic>();
+            if (enemic != null) Destroy(enemic.gameObject);
+            
+            // Destruir el proyectil
+            Destroy(gameObject);
+        }
     }
 }

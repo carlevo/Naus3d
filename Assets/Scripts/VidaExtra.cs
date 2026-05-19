@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class VidaExtra : MonoBehaviour
 {
-    public float velocidadCaida = 3f;
-    public Vector3 escala = new Vector3(0.5f, 0.5f, 1f);
+    public float velocidadCaida = 0.5f;  // Muy lento
+    public Vector3 escala = new Vector3(0.5f, 0.5f, 0.5f);  // Tamaño visible
 
     private void Start()
     {
@@ -15,9 +15,13 @@ public class VidaExtra : MonoBehaviour
     {
         // Movimiento hacia abajo
         transform.Translate(Vector3.down * velocidadCaida * Time.deltaTime);
-        Debug.Log("Moviendo corazón. Nueva Y: " + transform.position.y);
 
-        Vector3 minPantalla = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, 0));
+        // Obtener la profundidad correcta para calcular los límites
+        Camera cam = Camera.main;
+        float profunditat = Mathf.Abs(cam.transform.position.z);
+        Vector3 minPantalla = cam.ViewportToWorldPoint(new Vector3(0, 0, profunditat));
+        
+        // Destruir solo si sale por abajo de la pantalla
         if (transform.position.y < minPantalla.y)
         {
             Destroy(gameObject);
