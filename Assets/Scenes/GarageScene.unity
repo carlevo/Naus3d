@@ -277,6 +277,7 @@ GameObject:
   - component: {fileID: 497644046}
   - component: {fileID: 497644045}
   - component: {fileID: 497644044}
+  - component: {fileID: 497644047}
   m_Layer: 5
   m_Name: 6Nave
   m_TagString: Untagged
@@ -385,6 +386,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 497644042}
   m_CullTransparentMesh: 1
+--- !u!114 &497644047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 497644042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d57d9a483b5fed4388dbdf4e6f97f0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shipPrefab: {fileID: 0}
+  shipSprite: {fileID: 21300000, guid: d4094c8d5e47cff4791e83c12300e0bc, type: 3}
+  shipName: Nave
+  useCustomPreviewTransform: 0
+  previewPosition: {x: 0, y: 0, z: 0}
+  previewRotation: {x: 0, y: 180, z: 0}
+  previewScale: {x: 1, y: 1, z: 1}
+  selectionData: {fileID: 0}
+  garageManager: {fileID: 0}
 --- !u!1 &593468469
 GameObject:
   m_ObjectHideFlags: 0
@@ -627,6 +649,10 @@ MonoBehaviour:
   shipPrefab: {fileID: 919132149155446097, guid: 6eb16fe999bce664aab4e68f6a3f6159, type: 3}
   shipSprite: {fileID: 21300000, guid: 0843539a77154304ea1312d8fa2ff6dd, type: 3}
   shipName: UFO
+  useCustomPreviewTransform: 1
+  previewPosition: {x: 0, y: 0, z: 0}
+  previewRotation: {x: 0, y: 180, z: 0}
+  previewScale: {x: 80, y: 80, z: 80}
   selectionData: {fileID: 11400000, guid: 9bbe9c7a53f7f64429edb2c1ee4a8f03, type: 2}
   garageManager: {fileID: 930925300}
 --- !u!1 &930925299
@@ -691,6 +717,7 @@ GameObject:
   - component: {fileID: 975631514}
   - component: {fileID: 975631513}
   - component: {fileID: 975631512}
+  - component: {fileID: 975631515}
   m_Layer: 5
   m_Name: 8Nave
   m_TagString: Untagged
@@ -799,6 +826,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 975631510}
   m_CullTransparentMesh: 1
+--- !u!114 &975631515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 975631510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d57d9a483b5fed4388dbdf4e6f97f0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shipPrefab: {fileID: 0}
+  shipSprite: {fileID: 21300000, guid: d4094c8d5e47cff4791e83c12300e0bc, type: 3}
+  shipName: Nave
+  useCustomPreviewTransform: 0
+  previewPosition: {x: 0, y: 0, z: 0}
+  previewRotation: {x: 0, y: 180, z: 0}
+  previewScale: {x: 1, y: 1, z: 1}
+  selectionData: {fileID: 0}
+  garageManager: {fileID: 0}
 --- !u!1 &1197455141
 GameObject:
   m_ObjectHideFlags: 0
@@ -903,6 +951,7 @@ GameObject:
   - component: {fileID: 1336259762}
   - component: {fileID: 1336259761}
   - component: {fileID: 1336259760}
+  - component: {fileID: 1336259763}
   m_Layer: 5
   m_Name: 3Nave
   m_TagString: Untagged
@@ -1011,6 +1060,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1336259758}
   m_CullTransparentMesh: 1
+--- !u!114 &1336259763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1336259758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d57d9a483b5fed4388dbdf4e6f97f0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shipPrefab: {fileID: 0}
+  shipSprite: {fileID: 21300000, guid: d4094c8d5e47cff4791e83c12300e0bc, type: 3}
+  shipName: Nave
+  useCustomPreviewTransform: 0
+  previewPosition: {x: 0, y: 0, z: 0}
+  previewRotation: {x: 0, y: 180, z: 0}
+  previewScale: {x: 1, y: 1, z: 1}
+  selectionData: {fileID: 0}
+  garageManager: {fileID: 0}
 --- !u!1 &1380015766
 GameObject:
   m_ObjectHideFlags: 0
@@ -1023,6 +1093,7 @@ GameObject:
   - component: {fileID: 1380015770}
   - component: {fileID: 1380015769}
   - component: {fileID: 1380015768}
+  - component: {fileID: 1380015771}
   m_Layer: 5
   m_Name: 9Nave
   m_TagString: Untagged
@@ -1131,6 +1202,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1380015766}
   m_CullTransparentMesh: 1
+--- !u!114 &1380015771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1380015766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d57d9a483b5fed4388dbdf4e6f97f0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shipPrefab: {fileID: 0}
+  shipSprite: {fileID: 21300000, guid: d4094c8d5e47cff4791e83c12300e0bc, type: 3}
+  shipName: Nave
+  useCustomPreviewTransform: 0
+  previewPosition: {x: 0, y: 0, z: 0}
+  previewRotation: {x: 0, y: 180, z: 0}
+  previewScale: {x: 1, y: 1, z: 1}
+  selectionData: {fileID: 0}
+  garageManager: {fileID: 0}
 --- !u!1 &1450383658
 GameObject:
   m_ObjectHideFlags: 0
@@ -1237,6 +1329,7 @@ GameObject:
   - component: {fileID: 1455848745}
   - component: {fileID: 1455848744}
   - component: {fileID: 1455848743}
+  - component: {fileID: 1455848746}
   m_Layer: 5
   m_Name: 7nave
   m_TagString: Untagged
@@ -1345,6 +1438,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1455848741}
   m_CullTransparentMesh: 1
+--- !u!114 &1455848746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1455848741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d57d9a483b5fed4388dbdf4e6f97f0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shipPrefab: {fileID: 0}
+  shipSprite: {fileID: 21300000, guid: d4094c8d5e47cff4791e83c12300e0bc, type: 3}
+  shipName: Nave
+  useCustomPreviewTransform: 0
+  previewPosition: {x: 0, y: 0, z: 0}
+  previewRotation: {x: 0, y: 180, z: 0}
+  previewScale: {x: 1, y: 1, z: 1}
+  selectionData: {fileID: 0}
+  garageManager: {fileID: 0}
 --- !u!1 &1531556143
 GameObject:
   m_ObjectHideFlags: 0
@@ -1357,6 +1471,7 @@ GameObject:
   - component: {fileID: 1531556147}
   - component: {fileID: 1531556146}
   - component: {fileID: 1531556145}
+  - component: {fileID: 1531556148}
   m_Layer: 5
   m_Name: 4Nave
   m_TagString: Untagged
@@ -1465,6 +1580,148 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1531556143}
   m_CullTransparentMesh: 1
+--- !u!114 &1531556148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1531556143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d57d9a483b5fed4388dbdf4e6f97f0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shipPrefab: {fileID: 0}
+  shipSprite: {fileID: 21300000, guid: d4094c8d5e47cff4791e83c12300e0bc, type: 3}
+  shipName: Nave
+  useCustomPreviewTransform: 0
+  previewPosition: {x: 0, y: 0, z: 0}
+  previewRotation: {x: 0, y: 180, z: 0}
+  previewScale: {x: 1, y: 1, z: 1}
+  selectionData: {fileID: 0}
+  garageManager: {fileID: 0}
+--- !u!1 &1554456248
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1554456249}
+  - component: {fileID: 1554456252}
+  - component: {fileID: 1554456251}
+  - component: {fileID: 1554456250}
+  m_Layer: 5
+  m_Name: Apply
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1554456249
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1554456248}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.7663404, y: 2.3974135, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1673868720}
+  m_Father: {fileID: 1897245680}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 788, y: -390}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1554456250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1554456248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1554456251}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &1554456251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1554456248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 2b3440dac670ec14f933416890fdd145, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1554456252
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1554456248}
+  m_CullTransparentMesh: 1
 --- !u!1 &1657514154
 GameObject:
   m_ObjectHideFlags: 0
@@ -1477,6 +1734,7 @@ GameObject:
   - component: {fileID: 1657514158}
   - component: {fileID: 1657514157}
   - component: {fileID: 1657514156}
+  - component: {fileID: 1657514159}
   m_Layer: 5
   m_Name: 5Nave
   m_TagString: Untagged
@@ -1584,6 +1842,163 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1657514154}
+  m_CullTransparentMesh: 1
+--- !u!114 &1657514159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1657514154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d57d9a483b5fed4388dbdf4e6f97f0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shipPrefab: {fileID: 0}
+  shipSprite: {fileID: 21300000, guid: d4094c8d5e47cff4791e83c12300e0bc, type: 3}
+  shipName: Nave
+  useCustomPreviewTransform: 0
+  previewPosition: {x: 0, y: 0, z: 0}
+  previewRotation: {x: 0, y: 180, z: 0}
+  previewScale: {x: 1, y: 1, z: 1}
+  selectionData: {fileID: 0}
+  garageManager: {fileID: 0}
+--- !u!1 &1673868719
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1673868720}
+  - component: {fileID: 1673868722}
+  - component: {fileID: 1673868721}
+  m_Layer: 5
+  m_Name: ApplyText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1673868720
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1673868719}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1554456249}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1673868721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1673868719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 'Seleccionar
+
+'
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: e3d2ee6c1e4eca949b934ffdab244860, type: 2}
+  m_sharedMaterial: {fileID: 2971035133523401048, guid: e3d2ee6c1e4eca949b934ffdab244860, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 24
+  m_fontSizeBase: 24
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 1
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1673868722
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1673868719}
   m_CullTransparentMesh: 1
 --- !u!1 &1694026772
 GameObject:
@@ -1721,6 +2136,10 @@ MonoBehaviour:
   shipPrefab: {fileID: 919132149155446097, guid: a8496e580206e3a418283c177af81a23, type: 3}
   shipSprite: {fileID: 21300000, guid: fe9d1f75d3e319e4f8ad70684f22872b, type: 3}
   shipName: tridente
+  useCustomPreviewTransform: 0
+  previewPosition: {x: 0, y: 0, z: 0}
+  previewRotation: {x: 0, y: 180, z: 0}
+  previewScale: {x: 1, y: 1, z: 1}
   selectionData: {fileID: 11400000, guid: 9bbe9c7a53f7f64429edb2c1ee4a8f03, type: 2}
   garageManager: {fileID: 930925300}
 --- !u!1 &1897245676
@@ -1803,7 +2222,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!224 &1897245680
 RectTransform:
@@ -1828,6 +2247,7 @@ RectTransform:
   - {fileID: 1336259759}
   - {fileID: 497644043}
   - {fileID: 1380015767}
+  - {fileID: 1554456249}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

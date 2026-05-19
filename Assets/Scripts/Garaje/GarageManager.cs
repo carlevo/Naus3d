@@ -26,15 +26,18 @@ public class GarageManager : MonoBehaviour
 
     public void ShowPreview(GameObject prefab)
     {
-        // Destruir preview anterior
+        ShowPreview(prefab, previewPosition, previewRotation, previewScale);
+    }
+
+    public void ShowPreview(GameObject prefab, Vector3 position, Vector3 rotation, Vector3 scale)
+    {
         if (currentPreview != null)
             Destroy(currentPreview);
 
-        // Instanciar el nuevo prefab en previewRoot
         currentPreview = Instantiate(prefab, previewRoot);
-        currentPreview.transform.localPosition = previewPosition;
-        currentPreview.transform.localEulerAngles = previewRotation;
-        currentPreview.transform.localScale = previewScale;
+        currentPreview.transform.localPosition = position;
+        currentPreview.transform.localEulerAngles = rotation;
+        currentPreview.transform.localScale = scale;
     }
 
     // Llama este método desde el botón "Jugar"
