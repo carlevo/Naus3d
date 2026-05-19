@@ -24,6 +24,7 @@ public class NauJugador : MonoBehaviour
     {
         float hor = Input.GetAxisRaw("Horizontal");
         float ver = Input.GetAxisRaw("Vertical");
+        //Debug.Log($"Input Horizontal: {hor}, Vertical: {ver}");
         Vector3 direccio = new Vector3(hor, ver, 0).normalized;
         MoureNau(direccio);
     }
@@ -31,13 +32,14 @@ public class NauJugador : MonoBehaviour
     void MoureNau(Vector3 direccio)
     {
         Vector3 pos = transform.position;
+        Debug.Log($"Input direccio: {direccio}");
         pos += direccio * _vel * Time.deltaTime;
 
         // Límits de pantalla en coordenades del món (càmera en perspectiva)
-        Vector3 min = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, 0));
-        Vector3 max = Camera.main.ViewportToWorldPoint(new Vector3(1, 1, 0));
-        pos.x = Mathf.Clamp(pos.x, min.x + 0.6f, max.x - 0.6f);
-        pos.y = Mathf.Clamp(pos.y, min.y + 0.6f, max.y - 0.6f);
+        Vector3 min = Camera.main.ViewportToWorldPoint(new Vector2(0, 0));
+        Vector3 max = Camera.main.ViewportToWorldPoint(new Vector2(1, 1));
+        pos.x = Mathf.Clamp(pos.x, min.x, max.x);
+        pos.y = Mathf.Clamp(pos.y, min.y, max.y);
         // Z es manté constant (per exemple, 0)
         pos.z = 0;
         transform.position = pos;
