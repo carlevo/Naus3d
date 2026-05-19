@@ -6,7 +6,6 @@ public class NauEnemic : MonoBehaviour
 {
     float _vel = 3f;
 
-    public GameObject _ExplosioPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -39,9 +38,6 @@ public class NauEnemic : MonoBehaviour
     {
         if (objecteTocat.CompareTag("ProjectilJugador") || objecteTocat.CompareTag("NauJugador"))
         {
-
-            GameObject explosio = Instantiate(_ExplosioPrefab);
-            explosio.transform.position = transform.position;
 
             int puntsEnemic = 200;
             GameObject.Find("TextPunts").GetComponent<TextPuntsJugador>().setPuntsJugador(puntsEnemic);

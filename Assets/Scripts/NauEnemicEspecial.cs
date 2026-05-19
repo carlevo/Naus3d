@@ -11,8 +11,6 @@ public class NauEnemicEspecial : MonoBehaviour
     // Velocidad de movimiento vertical (hacia abajo).
     float _velVertical = 3f;
 
-    // Prefab de la explosión que se instancia al morir.
-    public GameObject _ExplosioPrefab;
     // Prefab del proyectil que dispara este enemigo.
     public GameObject _ProjectilEnemicEspecialPrefab;
 
@@ -85,10 +83,6 @@ public class NauEnemicEspecial : MonoBehaviour
     {
         if (objecteTocat.CompareTag("ProjectilJugador") || objecteTocat.CompareTag("NauJugador"))
         {
-            // Instancia la explosión en la posición del enemigo.
-            GameObject explosio = Instantiate(_ExplosioPrefab);
-            explosio.transform.position = transform.position;
-
             // Suma 500 puntos al marcador del jugador (más que el enemigo normal).
             int puntsEnemic = 500;
             GameObject.Find("TextPunts").GetComponent<TextPuntsJugador>().setPuntsJugador(puntsEnemic);

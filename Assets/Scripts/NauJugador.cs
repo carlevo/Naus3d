@@ -10,7 +10,7 @@ public class NauJugador : MonoBehaviour
 
     [SerializeField] private int _videsInicials = 3;
 
-    public GameObject _ExplosioPrefab;  // L'explosió també ha de ser 3D
+    
 
     void Start()
     {
@@ -55,11 +55,6 @@ public class NauJugador : MonoBehaviour
     {
         if (_estaMort) return;
         _vides--;
-
-        if (_ExplosioPrefab != null)
-        {
-            Instantiate(_ExplosioPrefab, transform.position, Quaternion.identity);
-        }
 
         if (_vides > 0) return;
 
