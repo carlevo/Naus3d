@@ -70,14 +70,7 @@ public class NauEnemicEspecial : MonoBehaviour
     }
 
     // Instancia un proyectil en la posición actual del enemigo.
-    private void CreaProjectil()
-    {
-        if (gameObject == null) return;
-
-        GameObject projectil = Instantiate(_ProjectilEnemicEspecialPrefab);
-        projectil.transform.position = transform.position;
-    }
-
+    
     // Detecta colisión con un proyectil del jugador o con la nave del jugador.
     private void OnTriggerEnter(Collider objecteTocat)
     {
