@@ -646,7 +646,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d57d9a483b5fed4388dbdf4e6f97f0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shipPrefab: {fileID: 919132149155446097, guid: 6eb16fe999bce664aab4e68f6a3f6159, type: 3}
+  shipPrefab: {fileID: 4617269313191027370, guid: 9def714583e84814da95eb94e8038a9f, type: 3}
   shipSprite: {fileID: 21300000, guid: 0843539a77154304ea1312d8fa2ff6dd, type: 3}
   shipName: UFO
   useCustomPreviewTransform: 1
@@ -2159,13 +2159,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d57d9a483b5fed4388dbdf4e6f97f0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shipPrefab: {fileID: 919132149155446097, guid: a8496e580206e3a418283c177af81a23, type: 3}
+  shipPrefab: {fileID: 1877752222506551411, guid: 8fcd622e1296f7948a69e692dcdb04f4, type: 3}
   shipSprite: {fileID: 21300000, guid: fe9d1f75d3e319e4f8ad70684f22872b, type: 3}
   shipName: tridente
-  useCustomPreviewTransform: 0
+  useCustomPreviewTransform: 1
   previewPosition: {x: 0, y: 0, z: 0}
   previewRotation: {x: 0, y: 180, z: 0}
-  previewScale: {x: 1, y: 1, z: 1}
+  previewScale: {x: 2, y: 2, z: 1}
   selectionData: {fileID: 11400000, guid: 9bbe9c7a53f7f64429edb2c1ee4a8f03, type: 2}
   garageManager: {fileID: 930925300}
 --- !u!1 &1897245676

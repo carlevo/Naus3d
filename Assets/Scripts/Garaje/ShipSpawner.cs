@@ -8,6 +8,7 @@ public class ShipSpawner : MonoBehaviour
     [Header("Punto de spawn en la escena")]
     public Transform spawnPoint;
 
+
     private void Start()
     {
         SpawnSelectedShip();
@@ -25,6 +26,10 @@ public class ShipSpawner : MonoBehaviour
         Quaternion rot = spawnPoint != null ? spawnPoint.rotation : Quaternion.identity;
 
         GameObject ship = Instantiate(selectionData.selectedShipPrefab, pos, rot);
+        ShipScaleConfig scaleConfig = ship.GetComponent<ShipScaleConfig>();
+        if (scaleConfig != null)
+            ship.transform.localScale = scaleConfig.scaleEnJuego;
+
         Debug.Log($"ShipSpawner: Nave '{selectionData.selectedShipName}' spawnada.");
     }
 }
